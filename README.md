@@ -7,8 +7,9 @@
 В отличие от той версии, которую я показывал на лекции, каждый узел хранит указатель на родителя. В таком варианте проще реализовать удаление вершины.
 
 Для удобства перечислю ссылки на визуализацию:
-https://visualgo.net/ru/bst?slide=1
-https://www.cs.usfca.edu/~galles/visualization/BST.html
 
-Реализация, которую я на лекции показывал - http://coliru.stacked-crooked.com/a/164f0ea1e5c1c802
-Реализация на python: http://aliev.me/runestone/Trees/SearchTreeImplementation.html
+1. https://visualgo.net/ru/bst?slide=1
+2. https://www.cs.usfca.edu/~galles/visualization/BST.html
+
+* Реализация, которую я на лекции показывал - http://coliru.stacked-crooked.com/a/164f0ea1e5c1c802
+* Реализация на python: http://aliev.me/runestone/Trees/SearchTreeImplementation.html

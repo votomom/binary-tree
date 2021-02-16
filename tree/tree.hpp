@@ -9,6 +9,6 @@ struct tree_node {
 struct tree {
   std::unique_ptr<tree_node> root;
 
-  tree_node *insert(int val);
-  bool remove(int val);
+  auto insert(int val) -> tree_node *;
+  auto remove(int val) -> bool;
 };

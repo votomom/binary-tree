@@ -1,8 +1,7 @@
-#include <catch.hpp>
-#include <tree.hpp>
+#include <doctest.h>
 #include <numeric>
+#include <tree.hpp>
 #include <vector>
-
 
 void check_tree(tree_node const &t) {
   if (t.left) {
@@ -23,11 +22,11 @@ void tree_to_vector(tree_node const &t, std::vector<int> &res) {
     tree_to_vector(*t.right, res);
 }
 
-std::vector<int> tree_to_vector(tree const &t) {
-  std::vector<int> result;
-  if (t.root)
-    tree_to_vector(*t.root, result);
-  return result;
+auto tree_to_vector(tree const &t) {
+    std::vector<int> result;
+    if (t.root)
+        tree_to_vector(*t.root, result);
+    return result;
 }
 
 TEST_CASE("Can insert many values") {

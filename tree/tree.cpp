@@ -1,11 +1,11 @@
 #include "tree.hpp"
 
-tree_node* tree::insert(int val) {
+auto tree::insert(int val) -> tree_node * {
     // Код для добавления элемента в дерево
     return nullptr;
 }
 
-bool tree::remove(int val) {
+auto tree::remove(int val) -> bool {
     // Код для удаления элемента из дерева
     return false;
 }

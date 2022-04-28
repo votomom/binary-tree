@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(tree CXX)
-include(${CMAKE_CURRENT_LIST_DIR}/../cmake/Tester.cmake)
-auto_tester(tree tree.cpp tree_test.cpp)
+add_executable(tree-test tree.cpp test.cpp)
+target_link_libraries(tree-test PUBLIC doctest default)
+add_test(NAME tree-test COMMAND tree-test --force-colors -d)
+add_custom_target(cloud-test COMMAND tree-test --force-colors -d)

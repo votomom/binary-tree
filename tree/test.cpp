@@ -1,6 +1,6 @@
+#include "tree.hpp"
 #include <doctest.h>
 #include <numeric>
-#include <tree.hpp>
 #include <vector>
 
 void check_tree(tree_node const &t) {
@@ -74,8 +74,9 @@ TEST_CASE("insert many vals and remove elements with only right subtree "
   tree t;
   std::vector<int> correct(TEST_RANGE_MAX);
   std::iota(correct.begin(), correct.end(), 0);
-  for (int i = 0; i < correct.size(); ++i) {
-    auto val = static_cast<int>(correct.size()) / 2 +
+  auto correct_size = static_cast<int>(correct.size());
+  for (int i = 0; i < correct_size; ++i) {
+    auto val = correct_size / 2 +
                ((i % 2) * 2 - 1) * ((i + 1) / 2) - 1;
     auto r = t.insert(val);
     REQUIRE(r);
@@ -118,8 +119,9 @@ TEST_CASE("insert, remove then insert again "
   tree t;
   std::vector<int> correct(TEST_RANGE_MAX);
   std::iota(correct.begin(), correct.end(), 0);
-  for (int i = 0; i < correct.size(); ++i) {
-    auto val = static_cast<int>(correct.size()) / 2 +
+  auto correct_size = static_cast<int>(correct.size());
+  for (int i = 0; i < correct_size; ++i) {
+    auto val = correct_size / 2 +
                ((i % 2) * 2 - 1) * ((i + 1) / 2) - 1;
     auto r = t.insert(val);
     REQUIRE(r);
@@ -138,8 +140,8 @@ TEST_CASE("insert, remove then insert again "
     // CHECK(check);
   }
   CHECK(!t.root);
-  for (int i = 0; i < correct.size(); ++i) {
-    auto val = static_cast<int>(correct.size()) / 2 +
+  for (int i = 0; i < correct_size; ++i) {
+    auto val = correct_size / 2 +
                ((i % 2) * 2 - 1) * ((i + 1) / 2) - 1;
     auto r = t.insert(val);
     REQUIRE(r);

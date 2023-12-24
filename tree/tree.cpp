@@ -43,7 +43,7 @@ auto tree::remove(int val) -> bool {
             node = node->left.get();
         }
     }
-    
+
     if (!node) {
         return false;
     }
@@ -60,25 +60,25 @@ auto tree::remove(int val) -> bool {
     }
 
     std::function<tree_node*(tree_node*)> get_right = [&get_right](tree_node* node) {
-        if (node->right) {
-            return get_right(node->right.get());
-        } else {
-            return node;
-        }
+      if (node->right) {
+          return get_right(node->right.get());
+      } else {
+          return node;
+      }
     };
 
     std::function<tree_node*(tree_node*)> get_left = [&get_left](tree_node* node) {
-        if (node->left) {
-            return get_left(node->left.get());
-        } else {
-            return node;
-        }
+      if (node->left) {
+          return get_left(node->left.get());
+      } else {
+          return node;
+      }
     };
     if (node == root.get()) {
         if (node->right) {
             auto min = get_left(node->right.get());
             node->value = min->value;
-            
+
             if (min->is_leaf()) {
                 if (min->is_left()) {
                     min->up->left = std::move(min->right);
@@ -97,7 +97,7 @@ auto tree::remove(int val) -> bool {
             }
             return true;
         }
-        
+
         root = std::move(root->left);
         root->up = nullptr;
         return true;
